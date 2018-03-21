@@ -1,0 +1,22 @@
+name                            : Total.js
+author                          : You company name
+version                         : 1.0.0
+secret                          : secret-key-for-web
+
+// Mail settings
+mail-smtp                       : smtp.yourwebsite.com
+mail-smtp-options               : {"secure":false,"port":25,"user":"","password":"","timeout":10000}
+mail-address-from               : your@yourwebsite.com
+mail-address-reply              : your@yourwebsite.com
+mail-address-copy               :
+
+database                        : postgres://root:7303556@localhost:5432/postgres
+                                
+//default-theme                   : default
+
+oauth2.google.key               : 665277723260-tfeo9mquv0tfb87nbu5eum79k8qangqm.apps.googleusercontent.com
+oauth2.google.secret            :  _O1ttdZlV2N1alkq02zGLB7e
+
+visage_school                   : C:\Users\Admin\git_site\admika\save\
+encoding                        : C:\Users\Admin\git_site\admika\save\encoding.json
+album_name                      : C:\Users\Admin\git_site\admika\save\name_albums.json
