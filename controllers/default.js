@@ -1,40 +1,42 @@
 exports.install = function() {
 	ROUTE('/');
 	
-	ROUTE('/registration',view_registration,['#session']);
+	ROUTE('/registration/',view_registration,['#session']);
 	//ROUTE('/registration',view_registration_auth,[/*'authorize',*/'#session']);
-	ROUTE('/registration', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
-	ROUTE('/login',view_login,'#session');
+	ROUTE('/registration/', json_create_user, ['post'/*,'unauthorize'*/,'#session']);
+	ROUTE('/login/',view_login,['#session']);
 	
-	ROUTE('/login/google',oauth_login,[/*'unauthorize',*/'#session']);
+	ROUTE('/login/google/',oauth_login,[/*'unauthorize',*/'#session']);
 	ROUTE('/login/google/callback/', oauth_login_callback, [/*'unauthorize',*/'#session']);
-	//ROUTE('/test', test);
-	ROUTE('/login', login, ['post','#session']);
-	ROUTE('/logout',logout,[/*'authorize',*/'#session']);
-	//ROUTE('/congratulation')
-	// or
-	// F.route('/');
-	//F.routeImage('./img/test.png')
-	//F.routeStatic('test.png')
-	//ROUTE('/img/*' , image_resize)
-	//ROUTE('/test/*' , util_url_mode)
+
+	ROUTE('/login/', login, ['post','#session']);
+	ROUTE('/logout/',logout,[/*'authorize',*/'#session']);
+
+
+	ROUTE('/test/',create_news)
+	ROUTE('/news/',view_news,['#session'])
+	
 };
 
+function create_news(){
+	let inst = MODEL('news').instant()
+	console.log(inst);
+	inst.title = 'Test title';
+	inst.body = 'Test body';
+	MODEL('news').create(inst)
+}
 
-/*function util_url_mode(str){
-	console.log(F.path.public(this.req.url))
-}*/
+function view_news(){
+	MODEL('news').load((err,news)=>{
+		if (err)
+			{this.repository.err = err;this.view('err');}
+		else{
+			this.repository.news = news; 
+		console.log(news)
+		this.view('news')}})
+	
+}
 
-
-/*function image_resize(){
-	let self = this;
-	util_url_mode(123);
-	this.image(F.path.public(self.req.url),(image)=>{
-		//let image = require('total.js/image').init(file)
-		image.resize('10%');
-		image.quality(80);
-		image.minify();})
-}*/
 
 function logout(){
 	//this.cookie('user','','-1 day')

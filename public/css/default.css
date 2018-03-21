@@ -45,6 +45,12 @@ li a:visited {
     margin-right: 1%;
     float: right;
 }
+
+.news-div {
+    border: 1px solid black;
+
+}
+
 .center { text-align: center; }
 hr { border: 0; border-top: 1px solid #E0E0E0; }
 

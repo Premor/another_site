@@ -1,0 +1,4 @@
+node_modules/
+tmp/
+*.pid
+package-lock.json
