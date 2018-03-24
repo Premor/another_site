@@ -32,7 +32,21 @@ function add_news(){
 }
 
 function album_add(){
-    
+    fs.mkdir(F.config.pravovik,(err)=>{
+	if (err)
+	{this.repository.err = err;this.view('err')}
+	else{
+	    fs.readFile(F.config.name_albums,(err,data)=>{
+		let alb_j = JSON.parse(data.toString('utf-8'));
+		alb_j.russian.push(this.body.ru);
+		alb_j.english.push(this.body.en);
+		fs.writeFile(F.config.name_albums,JSON.stringify(alb_j),(err) =>{
+		    this.view('add_news')
+		})
+		
+	    })
+	}
+    })
 
 }
 
@@ -176,7 +190,7 @@ async function encoding_add(enc,params){
 		for(i=0;i<enc_j.length;i++)
 		{
 			if (enc_j[i].album_name == params.album)
-				break
+			    break;
 		}
         enc_j[i].encoding.push(enc);
         

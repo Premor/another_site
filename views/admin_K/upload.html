@@ -1,0 +1,23 @@
+@{layout('')}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>вы загрузили </p>
+    @{foreach e in files} 
+        <label>@{e.filename} <input type="checkbox" id=@{index} /></label>
+        <br />
+    @{end} 
+    <form name="test" enctype="multipart/form-data" method="post">
+        <p>Загрузите файл с картинкой</p>
+        <p><input type="file" name="file" multiple></p>
+        <input type="submit">
+        </form>
+            
+</body>
+</html>

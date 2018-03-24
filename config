@@ -19,4 +19,5 @@ oauth2.google.secret            :  _O1ttdZlV2N1alkq02zGLB7e
 
 visage_school                   : C:\Users\Admin\git_site\admika\save\
 encoding                        : C:\Users\Admin\git_site\admika\save\encoding.json
-album_name                      : C:\Users\Admin\git_site\admika\save\name_albums.json
+album_name                      : /home/www/another_site/save/name_albums.json
+pravovik			: /home/www/another_site/save/
